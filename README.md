@@ -1,96 +1,42 @@
-# 🤖 AI Tools - 命令行 AI 工具箱
+# 🤖 AI Tools - 命令行 AI 瑞士军刀
 
-> 一个简洁高效的命令行 AI 工具集，支持翻译、总结、润色、问答等功能。基于各大免费 LLM API，无需额外配置，开箱即用。
+> 一套命令行工具，搞定翻译、总结、润色、问答、代码审查、批量处理。
 
-## ✨ 功能
+**pip 安装后随时调用，无需打开网页。**
 
-- 📝 **翻译** - 中英互译及其他多语言翻译
-- 📖 **总结** - 文章/文本一键摘要
-- ✍️ **润色** - 文本改写与优化
-- 💬 **问答** - 智能问答助手
-- 🎯 **标题生成** - 为文章/视频生成吸引人的标题
-- 🔍 **关键词提取** - 从文本中提取核心关键词
-
-## 🚀 快速开始
-
-### 安装
-
-```bash
+`ash
 pip install ai-tools
-```
-
-或者克隆使用：
-
-```bash
-git clone https://github.com/050612s/ai-tools.git
-cd ai-tools
-pip install -r requirements.txt
-```
-
-### 配置 API
-
-工具支持多种免费 LLM API，配置环境变量即可：
-
-```bash
-# SiliconFlow (推荐，免费额度)
-export SILICONFLOW_API_KEY="your-api-key"
-export SILICONFLOW_BASE_URL="https://api.siliconflow.cn/v1"
-
-# 或者使用 OpenAI 兼容接口
-export OPENAI_API_KEY="your-api-key"
-export OPENAI_BASE_URL="https://your-api-endpoint.com/v1"
-```
-
-### 使用
-
-```bash
-# 翻译
 ai-tools translate "Hello world"
+ai-tools summarize -f article.txt
+ai-tools polish "帮我润色这段话"
+ai-tools batch -f list.txt -o translate -out result.txt
+ai-tools qa -c "背景..." -q "问题..."
+ai-tools review -f code.py
+`
 
-# 总结文章
-echo "你的长文本内容..." | ai-tools summarize
+## 环境变量
 
-# 润色
-ai-tools polish "原始文本"
+`ash
+export AI_API_KEY="your-siliconflow-key"   # 默认使用硅基流动
+export AI_BASE_URL="https://api.siliconflow.cn/v1"
+export AI_MODEL="Qwen/Qwen2.5-7B-Instruct"
+`
 
-# 问答
-ai-tools ask "什么是人工智能？"
+## 支持模型
 
-# 生成标题
-ai-tools title "文章内容摘要"
+- 硅基流动（推荐，免费额度）
+- OpenAI GPT-4 / GPT-3.5
+- Anthropic Claude 3
+- Google Gemini
+- 本地 Ollama
 
-# 提取关键词
-ai-tools keywords "文本内容"
-```
+## 命令一览
 
-### 交互模式
-
-```bash
-ai-tools chat  # 进入对话模式
-```
-
-## 🛠️ 项目结构
-
-```
-ai-tools/
-├── main.py              # 主入口
-├── translator.py         # 翻译模块
-├── summarizer.py         # 总结模块
-├── polisher.py           # 润色模块
-├── qa.py                 # 问答模块
-├── title_gen.py          # 标题生成
-├── keywords.py           # 关键词提取
-├── api_client.py         # LLM API 客户端
-├── requirements.txt
-└── README.md
-```
-
-## 📋 环境要求
-
-- Python 3.8+
-- requests
-- 有网络连接
-
-## 📄 License
-
-MIT License
+| 命令 | 说明 | 示例 |
+|------|------|------|
+| 	ranslate | 翻译 | i-tools translate "hello" -to 中文 |
+| summarize | 总结 | i-tools summarize -f file.txt -s 简短 |
+| polish | 润色 | i-tools polish "帮我润色..." |
+| qa | 问答 | i-tools qa -c "背景" -q "问题" |
+| eview | 代码审查 | i-tools review -f code.py |
+| atch | 批量处理 | i-tools batch -f list.txt -o translate |
