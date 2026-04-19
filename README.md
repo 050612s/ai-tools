@@ -1,42 +1,81 @@
-# 🤖 AI Tools - 命令行 AI 瑞士军刀
+# 🤖 AI Tools 工具箱
 
-> 一套命令行工具，搞定翻译、总结、润色、问答、代码审查、批量处理。
+> 开源 AI 命令行工具箱，支持批量处理、代码审查、智能问答等。**零门槛，免费用。**
 
-**pip 安装后随时调用，无需打开网页。**
+[![Stars](https://img.shields.io/github/stars/050612s/ai-tools?style=flat-square)](https://github.com/050612s/ai-tools)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/050612s/ai-tools/blob/main/LICENSE)
+
+## ✨ 功能
+
+| 命令 | 说明 |
+|------|------|
+| python main.py batch | 批量处理文件（翻译/摘要/改写） |
+| python main.py review | 代码审查，找出 Bug 和优化点 |
+| python main.py improve | 优化代码质量 |
+| python main.py qa | 对代码/文档进行智能问答 |
+| python main.py translate | 文档翻译 |
+| python main.py summarize | 长文本摘要 |
+
+## 🚀 快速开始
 
 `ash
-pip install ai-tools
-ai-tools translate "Hello world"
-ai-tools summarize -f article.txt
-ai-tools polish "帮我润色这段话"
-ai-tools batch -f list.txt -o translate -out result.txt
-ai-tools qa -c "背景..." -q "问题..."
-ai-tools review -f code.py
+# 克隆项目
+git clone https://github.com/050612s/ai-tools.git
+cd ai-tools
+
+# 安装依赖
+pip install -r requirements.txt
+
+# 运行
+python main.py --help
 `
 
-## 环境变量
+## 📦 使用示例
 
+### 批量处理
 `ash
-export AI_API_KEY="your-siliconflow-key"   # 默认使用硅基流动
-export AI_BASE_URL="https://api.siliconflow.cn/v1"
-export AI_MODEL="Qwen/Qwen2.5-7B-Instruct"
+python main.py batch --dir ./docs --task summarize
 `
 
-## 支持模型
+### 代码审查
+`ash
+python main.py review --file main.py
+`
 
-- 硅基流动（推荐，免费额度）
-- OpenAI GPT-4 / GPT-3.5
-- Anthropic Claude 3
-- Google Gemini
-- 本地 Ollama
+### 智能问答
+`ash
+python main.py qa --question "这个函数的时间复杂度是多少？" --file algorithm.py
+`
 
-## 命令一览
+## 💡 使用场景
 
-| 命令 | 说明 | 示例 |
-|------|------|------|
-| 	ranslate | 翻译 | i-tools translate "hello" -to 中文 |
-| summarize | 总结 | i-tools summarize -f file.txt -s 简短 |
-| polish | 润色 | i-tools polish "帮我润色..." |
-| qa | 问答 | i-tools qa -c "背景" -q "问题" |
-| eview | 代码审查 | i-tools review -f code.py |
-| atch | 批量处理 | i-tools batch -f list.txt -o translate |
+- 📄 论文翻译与摘要
+- 🔍 代码质量检查
+- 📊 批量文档处理
+- 💬 技术文档问答
+- ✍️ 内容改写与润色
+
+## 🛠️ 技术栈
+
+- Python 3
+- OpenAI API / SiliconFlow API
+- 自然语言处理
+
+## 📦 依赖
+
+`
+openai>=1.0.0
+python-dotenv>=1.0.0
+`
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 PR！
+
+## 📄 License
+
+MIT License - 详见 [LICENSE](LICENSE)
+
+---
+
+⭐ 如果对你有帮助，请给个 Star！你的支持是我维护的动力。
